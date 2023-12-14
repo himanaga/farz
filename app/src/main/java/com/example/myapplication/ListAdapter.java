@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
+//implementation 'com.squareup.picasso:picasso:2.8'
+import com.squareup.picasso.Picasso;
+
 public class ListAdapter  extends ArrayAdapter<User> {
 
     public ListAdapter(Context context, ArrayList<User> userArrayList){
@@ -33,7 +36,8 @@ public class ListAdapter  extends ArrayAdapter<User> {
         TextView description = convertView.findViewById(R.id.description);
         TextView price = convertView.findViewById(R.id.price);
 
-        image.setImageResource(user.img);
+        //image.setImageResource(user.img);
+        Picasso.get().load(user.img).into(image);
         itemname.setText(user.name);
         description.setText(user.description);
         price.setText(user.price);
