@@ -13,11 +13,11 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 //implementation 'com.squareup.picasso:picasso:2.8'
-import com.squareup.picasso.Picasso;
+//import com.squareuppicasso.Picasso;//
 
 public class ListAdapter  extends ArrayAdapter<User> {
 
-    public ListAdapter(Context context, ArrayList<User> userArrayList){
+    public ListAdapter(@NonNull Context context, ArrayList<User> userArrayList){
 
         super(context,R.layout.list,userArrayList);
     }
@@ -31,17 +31,16 @@ public class ListAdapter  extends ArrayAdapter<User> {
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list,parent,false);
         }
-        ImageView image = convertView.findViewById(R.id.img);
-        TextView itemname = convertView.findViewById(R.id.name);
-        TextView description = convertView.findViewById(R.id.description);
-        TextView price = convertView.findViewById(R.id.price);
+        ImageView imageView = convertView.findViewById(R.id.list_image);
+        TextView name = convertView.findViewById(R.id.list_name);
+        TextView description = convertView.findViewById(R.id.list_description);
+        TextView price = convertView.findViewById(R.id.list_price);
 
-        //image.setImageResource(user.img);
-        Picasso.get().load(user.img).into(image);
-        itemname.setText(user.name);
+        imageView.setImageResource(user.img);
+        //Picasso.get().load(user.img).into(image);
+        name.setText(user.name);
         description.setText(user.description);
         price.setText(user.price);
-
 
         return convertView;
     }

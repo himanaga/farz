@@ -21,7 +21,7 @@ public class tractor extends AppCompatActivity {
         binding = ActivityTractorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        int[] image = { R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j};
+        int[] image = { R.drawable.a,R.drawable.b,R.drawable.f,R.drawable.logo,R.drawable.a,R.drawable.f,R.drawable.b,R.drawable.f,R.drawable.logo,R.drawable.a};
         String[] name = {"cultivater","mahindra","plough","driller","cultivater","mahindra","plough","driller","cultivater","driller"};
         String [] description ={"free of cost","Add to Cart","Popular App","Social Media","free of cost","Add to Cart","Popular App","Social Media","free of cost Add to Cart","Popular App Social Media"};
         String [] price ={"520","520","520","520","520","520","520","520","520","520"};
@@ -37,18 +37,18 @@ public class tractor extends AppCompatActivity {
         binding.listview.setClickable(true);
         binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
                 Intent i =new Intent(tractor.this,profile.class);
 
                 i.putExtra("name", name[position]);
-                i.putExtra("descrption",description[position]);
+                i.putExtra("description",description[position]);
                 i.putExtra("price",price[position]);
+                i.putExtra("image",image[position]);
                 startActivity(i);
 
             }
         });
-
 
     }
 }

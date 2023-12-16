@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:alwaysDrawnWithCache="true"
+    android:animateLayoutChanges="true"
+    android:animationCache="true"
+    android:background="#64C9E8"
     android:orientation="vertical"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
 
@@ -118,30 +123,33 @@
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePic"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:src="@drawable/acc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/acc" />
+        app:layout_constraintVertical_bias="0.024" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/logo"
-        android:layout_width="112dp"
-        android:layout_height="91dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
+    <TextView
+        android:layout_width="266dp"
+        android:layout_height="78dp"
+        android:gravity="center|center_horizontal"
+        android:rotationX="0"
+
+        android:rotationY="0"
+        android:text="Farm Tech"
+        android:textColor="#E20538"
+        android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025" />
-
+        app:layout_constraintVertical_bias="0.012" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

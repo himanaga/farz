@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -42,6 +43,7 @@ import java.util.Arrays;
 
 public class signup extends AppCompatActivity {
     SignInButton signInButton;
+    TextView txtMarquee;
 
     private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
             new FirebaseAuthUIActivityResultContract(),
@@ -58,7 +60,8 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         signInButton = findViewById(R.id.gSignInBtn);
-
+        txtMarquee = (TextView) findViewById(R.id.marqueeText);
+        txtMarquee.setSelected(true);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -95,6 +98,7 @@ public class signup extends AppCompatActivity {
         intent.putExtra("profilePic", user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : "");
         intent.putExtra("userName", user.getDisplayName());
         intent.putExtra("userEmail", user.getEmail());
+        intent.putExtra("userPhone",user.getPhoneNumber());
         startActivity(intent);
         finish();
     }
@@ -107,9 +111,10 @@ public class signup extends AppCompatActivity {
             if (user != null) {
                 String userName = user.getDisplayName();
                 String userEmail = user.getEmail();
+                String userphone = user.getPhoneNumber();
                 String userUid = user.getUid();
                 String photoUrl = user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : "";
-                String message = "User Logged in\nName: " + userName + "\nEmail: " + userEmail + "\nUID: " + userUid;
+                String message = "User Logged in\nName: " + userName + "\nEmail: " + userEmail + "\nUID: " + userUid + "\nphone" + userphone;
 
                 startMainActivity(user);
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show();
@@ -117,4 +122,5 @@ public class signup extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Some Error Broo", Toast.LENGTH_SHORT).show();
         }
-    }}
+    }
+}

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 goToProfilePage.putExtra("profileImageUrl", profileUrl);
                 goToProfilePage.putExtra("profileUserName", intent.getStringExtra("userName"));
                 goToProfilePage.putExtra("profileUserEmail", intent.getStringExtra("userEmail"));
+                goToProfilePage.putExtra("profileUserPhone", intent.getStringExtra("userPhone"));
 
                 startActivity(goToProfilePage);
             }
@@ -53,12 +54,16 @@ public class MainActivity extends AppCompatActivity {
         fertilizers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, tractor.class);
+                startActivity(i);
                 Toast.makeText(MainActivity.this, "Fertilizers Clicked", Toast.LENGTH_SHORT).show();
             }
         });
         crops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, tractor.class);
+                startActivity(i);
                 Toast.makeText(MainActivity.this, "Crops Clicked", Toast.LENGTH_SHORT).show();
             }
         });

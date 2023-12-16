@@ -33,27 +33,30 @@ import com.google.android.gms.tasks.Task;
 
 public class profile2 extends AppCompatActivity {
     Button logout;
-    TextView userNaam, userEmaail;
+    TextView userNaam, userEmaail, userphone;
     ImageView profilePicHere;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile2);
         Toast.makeText(this, "This is Profile Page Bro", Toast.LENGTH_SHORT).show();
 
         logout = findViewById(R.id.logout);
         userEmaail = findViewById(R.id.userEmaail);
         userNaam = findViewById(R.id.userName);
+        userphone = findViewById(R.id.userphone);
         profilePicHere = findViewById(R.id.profilePicHere);
 
         Intent intent = getIntent();
         String profileUrl = intent.getStringExtra("profileImageUrl");
         String userName = intent.getStringExtra("profileUserName");
         String userEmail = intent.getStringExtra("profileUserEmail");
+        String userPhone = intent.getStringExtra("profileUserPhone");
 
         Glide.with(profile2.this).load(profileUrl).into(profilePicHere);
         userNaam.setText(userName);
         userEmaail.setText(userEmail);
+        userphone.setText(userPhone);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
