@@ -12,8 +12,8 @@
         android:layout_marginTop="16dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="302dp"
+            android:layout_height="122dp"
             android:layout_marginVertical="10dp"
             android:orientation="horizontal">
 
@@ -24,7 +24,6 @@
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:src="@drawable/a" />
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -59,12 +58,15 @@
             android:id="@+id/list_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="41dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="24dp"
             android:padding="15dp"
+            android:text="$ free of cost"
             android:textColor="#E61212"
-            android:textStyle="bold"
-            android:text="$ free of cost" />
+            android:textStyle="bold" />
+
 
 
     </RelativeLayout>

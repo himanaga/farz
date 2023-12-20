@@ -29,8 +29,7 @@ import javax.annotation.Nullable;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.Task;
-
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class profile2 extends AppCompatActivity {
     Button logout;
     TextView userNaam, userEmaail, userphone;
@@ -71,6 +70,35 @@ public class profile2 extends AppCompatActivity {
                         });
             }
         });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            // Get the item ID outside the switch to avoid constant expression error
+            int itemId = item.getItemId();
+
+            // Use if-else if statements instead of switch for non-constant expressions
+            if (itemId == R.id.home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+                return true;
+            } else if (itemId == R.id.profile) {
+                return true;
+            } else if (itemId == R.id.cart) {
+                startActivity(new Intent(getApplicationContext(), cart.class));
+                finish();
+                return true;
+            }
+
+            return false;
+        });
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
     }
 
 

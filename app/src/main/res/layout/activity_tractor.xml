@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tractor">
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview"
-        tools:listitem="@layout/list" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bar"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bar" />
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="173dp"
+            android:layout_height="59dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="117dp"
+            android:background="#C2EAD7"
+            android:gravity="center|center_horizontal"
+            android:text="Tractors Page"
+            android:textColor="#F10404"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="125dp"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-6dp"
+            android:src="@drawable/vehicle"
+            android:text="cart" />
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="626dp"
+            android:layout_below="@id/textView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-1dp"
+            android:layout_marginBottom="47dp"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:listitem="@layout/list">
+
+
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

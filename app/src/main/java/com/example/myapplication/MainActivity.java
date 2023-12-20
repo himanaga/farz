@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView profilePic;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         fertilizers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, tractor.class);
+                Intent i = new Intent(MainActivity.this, fertilizers.class);
                 startActivity(i);
                 Toast.makeText(MainActivity.this, "Fertilizers Clicked", Toast.LENGTH_SHORT).show();
             }
@@ -62,10 +63,35 @@ public class MainActivity extends AppCompatActivity {
         crops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, tractor.class);
+                Intent i = new Intent(MainActivity.this, news.class);
                 startActivity(i);
                 Toast.makeText(MainActivity.this, "Crops Clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            // Get the item ID outside the switch to avoid constant expression error
+            int itemId = item.getItemId();
+
+            // Use if-else if statements instead of switch for non-constant expressions
+            if (itemId == R.id.home) {
+                return true;
+            } else if (itemId == R.id.profile) {
+                startActivity(new Intent(getApplicationContext(), profile2.class));
+
+                return true;
+            } else if (itemId == R.id.cart) {
+                startActivity(new Intent(getApplicationContext(), cart.class));
+                return true;
+            }
+            return false;
+        });
+
+    }
+    @Override
+    public void onBackPressed() {
+
     }
 }
